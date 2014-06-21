@@ -27,7 +27,8 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <script src="scripts/underscore.min.js"</script>
+    <script src="scripts/underscore.min.js"></script>
+
     <script src='scripts/jsondata.js'></script>
 
     <!-- build:js scripts/main.js -->
@@ -36,8 +37,7 @@
         <header>
           <div id = "github-logo">
           </div>
-          <input id = "search-bar">
-          </input>
+          <input id = "search-bar"></input>
           <nav id = "header-menu">
               <ul>
                   <li>Explore</li>
@@ -50,9 +50,10 @@
           </nav>
         </header>
 
+        <section id = "user-info">
         <script type="text/template" class="user-template">
 
-        <section = "user-info">
+
            <img id = 'user-profile-pic' src = <%- avatar_url%>>
 	         <h1 id = "user-login"><%- name %></h1>
 	         <h2 id = "user-login"><%- login %></h2>
@@ -71,39 +72,53 @@
                          <p class="stat-label">Followers</p></li>
                    <li>
                          <p class="stat"> 00 </p>
-                         <p class="stat-label">Starred</p></li>
-                        //  <!-- I'll wait until I can do use AJAX to pull a count from https://api.github.com/users/bullcitydave/starred; no point in downloading JSON just to do a count ->
+                         <p class="stat-label">Starred</p></li> <% // I'll wait until I can do use AJAX to pull a count from https://api.github.com/users/bullcitydave/starred; no point in downloading JSON just to do a count %>
                    <li>
                          <p class="stat"><%- following %></p>
                          <p class="stat-label"></p>Following</p></li>
                </ul>
             </nav>
             <section id = "organizations">
-                   <a href='#'><img src= <%- organizations_url %>></a>
-        </section>
+                   <a href='#'><img src= <%- organizations_url %>></a> <% // Need to figure out the right API to pull from...organizations is return null %>
+            </section>
+        </script>
+      </section>
 
         <section id = "main">
-        	      <nav id = "acivity-tab-headers">
+
+      <script type="text/template" class="repo-template">
+
+        	      <nav id = "activity-tab-headers">
                         <ul>
                             <li>Contributions</li>
                             <li>Repositories</li>
                             <li>Public Activity</li>
                         </ul>
+                </nav>
             <section id = "contributions">
 		            <section id = "popular-repos">
                      <header class = "main-subhead">Popular Repositories</header>
+_
+                      <% _.each(repoJSON, function(repo, repoList) {  %>
+                            <div class = "repo">
+                                <img class="git-icon" src="#" id="repo-icon">
+                                <p class="repo-title"> <% repo.name % > </p>
+                            </div>
+
+                      });
+
                 </section>
-		            <section id = "conbtrib-stats">
+		            <section id = "contrib-stats">
 	                 <header class = "main-subhead">Contributions</header>
-                   <img class = "git-icon" id = "privacy" src="#">
+                   <img class = "git-icon" id = "privacy-icon" src="#">
                    <figure id = "contrib-chart">
                    </figure>
                    <section id = "contrib-summary">
                        <section class = "contrib-summary-item">
-                       </section>
                            <p class = "summary-label">Year of contributions</p>
                            <p class = "summary-value"> total</p>
                            <p class = "summary-time-span">yearago - today</p>
+                        </section>
                        <section class = "contrib-summary-item">
                            <p class = "summary-label">Longest streak</p>
                            <p class = "summary-value"> days</p>
@@ -123,13 +138,9 @@
           </section>
 
         </script>
-
+      </section>
     </div>
 
-        <div class="footer">
-            <p>Footer!</p>
-        </div>
-    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
