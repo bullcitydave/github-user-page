@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>github repo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.scss">
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+
+
+<body>
+    <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <script src="scripts/underscore.min.js"</script>
+    <!-- build:js scripts/main.js -->
+
+    // <script src="scripts/jsondata.js"></script>
+
+    <div class="container">
+        <header>
+          <div id = "github-logo">
+          </div>
+          <input id = "search-bar">
+          </input>
+          <nav id = "header-menu">
+              <ul>
+                  <li>Explore</li>
+                  <li>Features</li>
+                  <li>Enterprise</li>
+                  <li>Blog</li>
+                  <li class="button">Sign up</li>
+                  <li class="button">Sign in</li>
+              </ul>
+          </nav>
+        </header>
+
+        <script type="text/template" class="user-template">
+
+        <section = "user-info">
+	         <h1 id = "user-login"><%- name %></h1>
+	         <h2 id = "user-login"><%- login %></h2>
+	         <nav id = "user-basic-info">
+               <ul>
+                   <li><%- location %></li>
+                   <li><%- email %></li>
+                   <li><%- blog %></li>
+                   <li>Joined on <time><% created_at %></time></li>
+                </ul>
+            </nav>
+            <nav id = "user-social-stats">
+               <ul>
+                   <li><%- followers %></li>
+                   <li>Stars</li>
+                   <li><%- following %></li>
+               </ul>
+            </nav>
+            <section id = "organizations">
+               <a href='#'><img src='#'></a>
+            </section>
+        </script>
+
+    </div>
+
+        <div class="footer">
+            <p>Footer!</p>
+        </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+    <!-- underscore.s -->
+    <!-- script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script> -->
+
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+
+</body>
+</html>
