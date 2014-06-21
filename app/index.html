@@ -28,9 +28,9 @@
     <![endif]-->
 
     <script src="scripts/underscore.min.js"</script>
-    <!-- build:js scripts/main.js -->
+    <script src='scripts/jsondata.js'></script>
 
-    // <script src="scripts/jsondata.js"></script>
+    <!-- build:js scripts/main.js -->
 
     <div class="container">
         <header>
@@ -53,6 +53,7 @@
         <script type="text/template" class="user-template">
 
         <section = "user-info">
+           <img id = 'user-profile-pic' src = <%- avatar_url%>>
 	         <h1 id = "user-login"><%- name %></h1>
 	         <h2 id = "user-login"><%- login %></h2>
 	         <nav id = "user-basic-info">
@@ -60,19 +61,67 @@
                    <li><%- location %></li>
                    <li><%- email %></li>
                    <li><%- blog %></li>
-                   <li>Joined on <time><% created_at %></time></li>
+                   <li>Joined on <time><%- created_at %></time></li>
                 </ul>
             </nav>
             <nav id = "user-social-stats">
                <ul>
-                   <li><%- followers %></li>
-                   <li>Stars</li>
-                   <li><%- following %></li>
+                   <li>
+                         <p class="stat"><%- followers %></p>
+                         <p class="stat-label">Followers</p></li>
+                   <li>
+                         <p class="stat"> 00 </p>
+                         <p class="stat-label">Starred</p></li>
+                        //  <!-- I'll wait until I can do use AJAX to pull a count from https://api.github.com/users/bullcitydave/starred; no point in downloading JSON just to do a count ->
+                   <li>
+                         <p class="stat"><%- following %></p>
+                         <p class="stat-label"></p>Following</p></li>
                </ul>
             </nav>
             <section id = "organizations">
-               <a href='#'><img src='#'></a>
-            </section>
+                   <a href='#'><img src= <%- organizations_url %>></a>
+        </section>
+
+        <section id = "main">
+        	      <nav id = "acivity-tab-headers">
+                        <ul>
+                            <li>Contributions</li>
+                            <li>Repositories</li>
+                            <li>Public Activity</li>
+                        </ul>
+            <section id = "contributions">
+		            <section id = "popular-repos">
+                     <header class = "main-subhead">Popular Repositories</header>
+                </section>
+		            <section id = "conbtrib-stats">
+	                 <header class = "main-subhead">Contributions</header>
+                   <img class = "git-icon" id = "privacy" src="#">
+                   <figure id = "contrib-chart">
+                   </figure>
+                   <section id = "contrib-summary">
+                       <section class = "contrib-summary-item">
+                       </section>
+                           <p class = "summary-label">Year of contributions</p>
+                           <p class = "summary-value"> total</p>
+                           <p class = "summary-time-span">yearago - today</p>
+                       <section class = "contrib-summary-item">
+                           <p class = "summary-label">Longest streak</p>
+                           <p class = "summary-value"> days</p>
+                           <p class = "summary-time-span">when - when</p>
+                       </section>
+                       <section class = "contrib-summary-item">
+                           <p class = "summary-label">Current streak</p>
+                           <p class = "summary-value"> days</p>
+                           <p class = "summary-time-span">when - when</p>
+                       </section>
+                   </section>
+                   <section id = "contrib-period">
+                       <p>Contribution activity</p>
+                       <selection><option value="1 week"></option></selection>
+                   </section>
+              </section>
+          </section>
+
         </script>
 
     </div>
