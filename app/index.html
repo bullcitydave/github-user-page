@@ -87,7 +87,8 @@
         <section id = "main">
 
       <script type="text/template" class="repo-template">
-
+<h2>Name is <%- name %></h2>
+</script>
         	      <nav id = "activity-tab-headers">
                         <ul>
                             <li>Contributions</li>
@@ -98,15 +99,16 @@
             <section id = "contributions">
 		            <section id = "popular-repos">
                      <header class = "main-subhead">Popular Repositories</header>
-_
-                      <% _.each(repoJSON, function(repo, repoList) {  %>
-                            <div class = "repo">
-                                <img class="git-icon" src="#" id="repo-icon">
-                                <p class="repo-title"> <% repo.name % > </p>
-                            </div>
 
-                      });
-
+                      <!-- // <% alert('Hello') %>
+                      // <% _.each(repoJSON, function(repo, repoList) {  %>
+                      //       <div class = "repo">
+                      //           <img class="git-icon" src="#" id="repo-icon">
+                      //           <p class="repo-title"> <%- repo.name % > </p>
+                      //       </div>
+                      //
+                      // }); -->
+      </script>
                 </section>
 		            <section id = "contrib-stats">
 	                 <header class = "main-subhead">Contributions</header>
@@ -137,7 +139,7 @@ _
               </section>
           </section>
 
-        </script>
+        <!-- </script> -->
       </section>
     </div>
 

@@ -572,6 +572,73 @@ var repoJSON =
   }
 ];
 
+var repoJSON2 = {
+    'id': 20937603,
+    'name': 'accordion',
+    'full_name': 'bullcitydave/accordion',
+    'private': false,
+    'html_url': 'https://github.com/bullcitydave/accordion',
+    'description': 'Example of an accordion using CSS3 and jQuery',
+    'fork': false,
+    'url': 'https://api.github.com/repos/bullcitydave/accordion',
+    'forks_url': 'https://api.github.com/repos/bullcitydave/accordion/forks',
+    'keys_url': 'https://api.github.com/repos/bullcitydave/accordion/keys{/key_id}',
+    'collaborators_url': 'https://api.github.com/repos/bullcitydave/accordion/collaborators{/collaborator}',
+    'teams_url': 'https://api.github.com/repos/bullcitydave/accordion/teams',
+    'hooks_url': 'https://api.github.com/repos/bullcitydave/accordion/hooks',
+    'issue_events_url': 'https://api.github.com/repos/bullcitydave/accordion/issues/events{/number}',
+    'events_url': 'https://api.github.com/repos/bullcitydave/accordion/events',
+    'assignees_url': 'https://api.github.com/repos/bullcitydave/accordion/assignees{/user}',
+    'branches_url': 'https://api.github.com/repos/bullcitydave/accordion/branches{/branch}',
+    'tags_url': 'https://api.github.com/repos/bullcitydave/accordion/tags',
+    'blobs_url': 'https://api.github.com/repos/bullcitydave/accordion/git/blobs{/sha}',
+    'git_tags_url': 'https://api.github.com/repos/bullcitydave/accordion/git/tags{/sha}',
+    'git_refs_url': 'https://api.github.com/repos/bullcitydave/accordion/git/refs{/sha}',
+    'trees_url': 'https://api.github.com/repos/bullcitydave/accordion/git/trees{/sha}',
+    'statuses_url': 'https://api.github.com/repos/bullcitydave/accordion/statuses/{sha}',
+    'languages_url': 'https://api.github.com/repos/bullcitydave/accordion/languages',
+    'stargazers_url': 'https://api.github.com/repos/bullcitydave/accordion/stargazers',
+    'contributors_url': 'https://api.github.com/repos/bullcitydave/accordion/contributors',
+    'subscribers_url': 'https://api.github.com/repos/bullcitydave/accordion/subscribers',
+    'subscription_url': 'https://api.github.com/repos/bullcitydave/accordion/subscription',
+    'commits_url': 'https://api.github.com/repos/bullcitydave/accordion/commits{/sha}',
+    'git_commits_url': 'https://api.github.com/repos/bullcitydave/accordion/git/commits{/sha}',
+    'comments_url': 'https://api.github.com/repos/bullcitydave/accordion/comments{/number}',
+    'issue_comment_url': 'https://api.github.com/repos/bullcitydave/accordion/issues/comments/{number}',
+    'contents_url': 'https://api.github.com/repos/bullcitydave/accordion/contents/{+path}',
+    'compare_url': 'https://api.github.com/repos/bullcitydave/accordion/compare/{base}...{head}',
+    'merges_url': 'https://api.github.com/repos/bullcitydave/accordion/merges',
+    'archive_url': 'https://api.github.com/repos/bullcitydave/accordion/{archive_format}{/ref}',
+    'downloads_url': 'https://api.github.com/repos/bullcitydave/accordion/downloads',
+    'issues_url': 'https://api.github.com/repos/bullcitydave/accordion/issues{/number}',
+    'pulls_url': 'https://api.github.com/repos/bullcitydave/accordion/pulls{/number}',
+    'milestones_url': 'https://api.github.com/repos/bullcitydave/accordion/milestones{/number}',
+    'notifications_url': 'https://api.github.com/repos/bullcitydave/accordion/notifications{?since,all,participating}',
+    'labels_url': 'https://api.github.com/repos/bullcitydave/accordion/labels{/name}',
+    'releases_url': 'https://api.github.com/repos/bullcitydave/accordion/releases{/id}',
+    'created_at': '2014-06-17T19:57:07Z',
+    'updated_at': '2014-06-17T20:31:08Z',
+    'pushed_at': '2014-06-17T20:31:07Z',
+    'git_url': 'git://github.com/bullcitydave/accordion.git',
+    'ssh_url': 'git@github.com:bullcitydave/accordion.git',
+    'clone_url': 'https://github.com/bullcitydave/accordion.git',
+    'svn_url': 'https://github.com/bullcitydave/accordion',
+    'homepage': null,
+    'size': 0,
+    'stargazers_count': 0,
+    'watchers_count': 0,
+    'language': 'CSS',
+    'has_issues': true,
+    'has_downloads': true,
+    'has_wiki': true,
+    'forks_count': 0,
+    'mirror_url': null,
+    'open_issues_count': 0,
+    'forks': 0,
+    'open_issues': 0,
+    'watchers': 0,
+    'default_branch': 'master'
+  };
 
 // Render the underscore template and inject it after the H1
 // in our current DOM. 2nd example code
@@ -595,11 +662,12 @@ var repoJSON =
 // );
 
 var userView = $('.user-template').html();
-
 var repoView = $('.repo-template').html();
 
 // Define our render data (to be put into the 'rc' variable).
 
+//try
 $('#user-info').append(_.template(userView,userJSON));
 
-$('#main').append(_.template(repoView,repoJSON));
+// this is never going to work, is it? because repoJSON is an array, but why not repoJSON2? I can apply userJSON to repoView. Have created repoJSON2 to be same format
+$('#main').append(_.template(repoView,repoJSON2));
