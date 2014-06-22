@@ -41,9 +41,10 @@ var repoView = $('.repo-template').html();
 $('#user-info').append(_.template(userView,userJSON));
 
 
-// for (var i = 0; i < (_.size(repoJSON)); i++) {
-console.log(repoJSON[0].name);
-$('#popular-repos').append(_.template(repoView,repoJSON[0]));
+for (var i = 0; i < (_.size(repoJSON)); i++) {
+    console.log(repoJSON[0].name);
+    $('#popular-repos').append(_.template(repoView,repoJSON[i]));
+}
 
 
 
