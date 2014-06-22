@@ -52,10 +52,8 @@
 
         <section id = "user-info">
         <script type="text/template" class="user-template">
-
-
-           <img id = 'user-profile-pic' src = <%- avatar_url%>>
-	         <h1 id = "user-login"><%- name %></h1>
+        <img id = 'user-profile-pic' src = <%- avatar_url%>>
+           <h1 id = "user-login"><%- name %></h1>
 	         <h2 id = "user-login"><%- login %></h2>
 	         <nav id = "user-basic-info">
                <ul>
@@ -86,9 +84,8 @@
 
         <section id = "main">
 
-      <script type="text/template" class="repo-template">
-<h2>Name is <%- name %></h2>
-</script>
+
+
         	      <nav id = "activity-tab-headers">
                         <ul>
                             <li>Contributions</li>
@@ -99,16 +96,13 @@
             <section id = "contributions">
 		            <section id = "popular-repos">
                      <header class = "main-subhead">Popular Repositories</header>
+                     <script type="text/template" class="repo-template">
 
-                      <!-- // <% alert('Hello') %>
-                      // <% _.each(repoJSON, function(repo, repoList) {  %>
-                      //       <div class = "repo">
-                      //           <img class="git-icon" src="#" id="repo-icon">
-                      //           <p class="repo-title"> <%- repo.name % > </p>
-                      //       </div>
-                      //
-                      // }); -->
-      </script>
+              <%- name %>
+                    
+                      </script>
+                  </section>
+
                 </section>
 		            <section id = "contrib-stats">
 	                 <header class = "main-subhead">Contributions</header>
@@ -139,7 +133,7 @@
               </section>
           </section>
 
-        <!-- </script> -->
+
       </section>
     </div>
 
