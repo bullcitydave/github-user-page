@@ -69,8 +69,8 @@
                          <p class="stat"><%- followers %></p>
                          <p class="stat-label">Followers</p></li>
                    <li>
-                         <p class="stat"> 00 </p>
-                         <p class="stat-label">Starred</p></li> <% // I'll wait until I can do use AJAX to pull a count from https://api.github.com/users/bullcitydave/starred; no point in downloading JSON just to do a count %>
+                         <p class="stat"> <%- starredCount %> </p>
+                         <p class="stat-label">Starred</p></li>
                    <li>
                          <p class="stat"><%- following %></p>
                          <p class="stat-label"></p>Following</p></li>
@@ -95,16 +95,21 @@
                 </nav>
             <section id = "contributions">
 		            <section id = "popular-repos">
-                     <header class = "main-subhead">Popular Repositories</header>
-                     <script type="text/template" class="repo-template">
-
-              <%- name %>
-                    
-                      </script>
+                  <header class = "main-subhead">Popular Repositories</header>
+                  <script type="text/template" class="repo-template">
+                      <div class = "repo">
+	                       <img class="git-icon" src="#" id="repo-icon">
+	                       <p class="repo-title"> <%- name %></p>
+                         <p class="repo-desc"> <%- description %></p>
+                         <img class="git-icon" src="#" id="star-icon">
+                         <p class="repo-stars"> <%- stargazers_count %></p>
+	                     </div>
+                  </script>
                   </section>
 
                 </section>
 		            <section id = "contrib-stats">
+                   <script type="text/template" class="activity-summary-template">
 	                 <header class = "main-subhead">Contributions</header>
                    <img class = "git-icon" id = "privacy-icon" src="#">
                    <figure id = "contrib-chart">
@@ -112,27 +117,40 @@
                    <section id = "contrib-summary">
                        <section class = "contrib-summary-item">
                            <p class = "summary-label">Year of contributions</p>
-                           <p class = "summary-value"> total</p>
+                           <p class = "summary-value"><%- contributionCount %></p>
                            <p class = "summary-time-span">yearago - today</p>
                         </section>
                        <section class = "contrib-summary-item">
                            <p class = "summary-label">Longest streak</p>
-                           <p class = "summary-value"> days</p>
+                           <p class = "summary-value">-1 days</p>
                            <p class = "summary-time-span">when - when</p>
                        </section>
                        <section class = "contrib-summary-item">
                            <p class = "summary-label">Current streak</p>
-                           <p class = "summary-value"> days</p>
+                           <p class = "summary-value">-1 days</p>
                            <p class = "summary-time-span">when - when</p>
                        </section>
                    </section>
                    <section id = "contrib-period">
+                  <!--  For now, doing all-time commits without looking at timestamps, assuming commits are push events -->
                        <p>Contribution activity</p>
-                       <selection><option value="1 week"></option></selection>
-                   </section>
+                       <select><option value="All-time">All-time</option></select>
+                       <div id="commit-count">
+                          <img src="#" id="commit-icon">
+                          <p><span id ="commit-total"><%- commitCount %></span><span id="commit-txt"> commits</span></p>
+                       </div>
+                  </script>
+                </section>
               </section>
-          </section>
+              <section id="commits-by-repo">
+                       <script type="text/template" class="repo-commit-template">
+                       <p><span id = "push-statement">Pushed <%- repoCommitCount %> commits to <%- repoName %></span><time id = "commit-date"></time></p>
+                       </script>
+             </section>
 
+              </section>
+
+</section>
 
       </section>
     </div>

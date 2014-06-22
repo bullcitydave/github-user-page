@@ -20,19 +20,35 @@
 // 	$( 'script.user-template' ).html()
 // );
 
-var login = 'emmylucille';
+var login = 'bullcitydave';
 
-var contributorJSON = getJSON ('https://api.github.com/repos/' + login + '/' + login + '.github.io/contributors');
+// Get github API data
+  var contribJSON = getJSON ('https://api.github.com/repos/' + login + '/' + login + '.github.io/contributors');
+  var repoJSON = getJSON ('https://api.github.com/users/' + login + '/repos');
+  var userJSON = getJSON ('https://api.github.com/users/' + login);
+  var tiyJSON = getJSON ('https://api.github.com/orgs/tiy-durham-june2014-frontend');
+  var followerJSON = getJSON('https://api.github.com/users/' + login + '/followers');
+  var starredJSON = getJSON('https://api.github.com/users/' + login + '/starred');
+  var eventsJSON = getJSON('https://api.github.com/users/' + login + '/events');
 
-var repoJSON = getJSON ('https://api.github.com/users/' + login + '/repos');
+var starredCount = _.size(starredJSON);
 
-var userJSON = getJSON ('https://api.github.com/users/' + login);
+// using total count of push and create events; this is greater than actual number github has; their algorithm is unclear to me
+var contributionCount = _.countBy(eventsJSON, 'type').PushEvent + _.countBy(eventsJSON, 'type').CreateEvent;
 
-var tiyJSON = getJSON ('https://api.github.com/orgs/tiy-durham-june2014-frontend');
+var commitCount = _.countBy(eventsJSON, 'type').PushEvent;
+
 
 var userView = $('.user-template').html();
-
 var repoView = $('.repo-template').html();
+var contribView = $('.activity-summary-template').html();
+var repoCommitView = $('.repo-commit-template').html();
+
+
+//
+// for (var i = 0; i < (_.size(repoJSON)) && i < 5 ; i++) {
+//     $('#popular-repos').append(_.template(repoView,repoJSON[i]));
+// }
 
 
 // Define our render data (to be put into the 'rc' variable)...i would but I've got enough going on to try to understand why i shoudl do this
@@ -40,34 +56,30 @@ var repoView = $('.repo-template').html();
 //this works...don't touch this!
 $('#user-info').append(_.template(userView,userJSON));
 
-
-for (var i = 0; i < (_.size(repoJSON)); i++) {
-    console.log(repoJSON[0].name);
+// should do a short on all and return first, but just going to grab first 5 for the time being
+for (var i = 0; i < (_.size(repoJSON)) && i < 5 ; i++) {
     $('#popular-repos').append(_.template(repoView,repoJSON[i]));
 }
 
+$('#contrib-stats').append(_.template(contribView,contribJSON));
 
+// commits by repository; first line returns an object where names of props are the repos, values are counts
+var commitsByRepo = _.countBy(eventsJSON, function(myevent) {
+    return myevent.repo.name;
+});
 
-// this is never going to work, is it? because repoJSON is an array, but why not repoJSON2? I can apply userJSON to repoView. Have created repoJSON2 to be same simple object format, got rid of User properties, which I should do in a map function after I get the data loaded in some sort of loop
-// $('#main').append(_.template(repoView,repoJSON2));
-
-
-
-
-// var contributorJSON = (function () {
-//     var json = null;
-//     $.ajax({
-//         'async': false,
-//         'global': false,
-//         'url': 'https://api.github.com/repos/bullcitydave/bullcitydave.github.io/contributors',
-//         'dataType': "json",
-//         'success': function (data) {
-//             json = data;
-//         }
-//     });
-//     return json;
-// })();
-
+var counts= _.toArray(commitsByRepo);
+var c = 0;
+for (var name in commitsByRepo){
+  repoName = name;
+  console.log(repoName);
+  repoCommitCount = counts[c];
+  console.log(repoCommitCount);
+  c++;
+  // $('#commits-by-repo').append(_.template(repoCommitView));
+  $('#commits-by-repo').append('<p>' +repoName+'</p>');
+  $('#commits-by-repo').append('<p>' + repoCommitCount+'</P>');
+};
 
 function getJSON (myUrl) {
     var json = null;
