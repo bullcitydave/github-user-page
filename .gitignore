@@ -2,4 +2,6 @@ node_modules
 dist
 .tmp
 .sass-cache
-gulpfile.BAD.js
+app/scripts/gulpfile.BAD.js
+app/scripts/apitoken.js
+app/scripts/*.json

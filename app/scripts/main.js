@@ -20,6 +20,8 @@
 // 	$( 'script.user-template' ).html()
 // );
 
+/* jshint undef: true, unused: true */
+
 var login = 'bullcitydave';
 
 // Get github API data
@@ -31,24 +33,21 @@ var login = 'bullcitydave';
   var starredJSON = getJSON('https://api.github.com/users/' + login + '/starred');
   var eventsJSON = getJSON('https://api.github.com/users/' + login + '/events');
 
-var starredCount = _.size(starredJSON);
+
 
 // using total count of push and create events; this is greater than actual number github has; their algorithm is unclear to me
 var contributionCount = _.countBy(eventsJSON, 'type').PushEvent + _.countBy(eventsJSON, 'type').CreateEvent;
 
 var commitCount = _.countBy(eventsJSON, 'type').PushEvent;
 
+var starredCount = _.size(starredJSON);
 
+// generate pre-compile HTML from templatesß
 var userView = $('.user-template').html();
 var repoView = $('.repo-template').html();
 var contribView = $('.activity-summary-template').html();
 var repoCommitView = $('.repo-commit-template').html();
 
-
-//
-// for (var i = 0; i < (_.size(repoJSON)) && i < 5 ; i++) {
-//     $('#popular-repos').append(_.template(repoView,repoJSON[i]));
-// }
 
 
 // Define our render data (to be put into the 'rc' variable)...i would but I've got enough going on to try to understand why i shoudl do this
@@ -56,7 +55,7 @@ var repoCommitView = $('.repo-commit-template').html();
 //this works...don't touch this!
 $('#user-info').append(_.template(userView,userJSON));
 
-// should do a short on all and return first, but just going to grab first 5 for the time being
+// should do a sort on all and return first, but just going to grab first 5 for the time being
 for (var i = 0; i < (_.size(repoJSON)) && i < 5 ; i++) {
     $('#popular-repos').append(_.template(repoView,repoJSON[i]));
 }
@@ -72,15 +71,14 @@ var counts= _.toArray(commitsByRepo);
 var c = 0;
 for (var name in commitsByRepo){
   repoName = name;
-  console.log(repoName);
   repoCommitCount = counts[c];
-  console.log(repoCommitCount);
   c++;
   // $('#commits-by-repo').append(_.template(repoCommitView));
   $('#commits-by-repo').append('<p>' +repoName+'</p>');
   $('#commits-by-repo').append('<p>' + repoCommitCount+'</P>');
 };
 
+    ``
 function getJSON (myUrl) {
     var json = null;
     $.ajax({
