@@ -1,0 +1,122 @@
+/* Space out content a bit */
+body {
+  width: 1065px;
+  margin: auto;
+  font-family: Arial, sans serif; }
+
+a {
+  text-decoration: none;
+  font-color: #000; }
+
+.container {
+  padding: 20px; }
+
+p, h1, h2, h3, h4 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0; }
+
+section {
+  clear: both; }
+
+img#github-logo, img#placeholder-icon {
+  float: left;
+  width: 40px;
+  height: 40px; }
+
+#search-bar {
+  width: 205px;
+  float: left; }
+
+li {
+  list-style: none;
+  float: left; }
+
+nav#header-menu li {
+  padding: 0 10px; }
+
+section#user-info {
+  float: left;
+  width: 300px;
+  margin-right: 15px; }
+
+img#user-profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px; }
+
+h1 {
+  font-size: 1.7em; }
+
+h2 {
+  font-size: 1.3em;
+  font-weight: normal; }
+
+h3 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0; }
+
+header.main-subhead {
+  font-size: 0.8em;
+  font-weight: bold;
+  width: 100%;
+  background-color: #eeeeee; }
+
+h4 {
+  font-size: 0.8em;
+  width: 100%;
+  padding: 0 0 0 28px; }
+
+h5 {
+  font-size: 0.7em;
+  color: #999999; }
+
+section#main {
+  float: left;
+  clear: none;
+  width: 700px; }
+
+#user-basic-info {
+  border-top: 1px solid #eeeeee; }
+
+img.git-icon {
+  width: 16px;
+  height: 16px;
+  opacity: .8;
+  float: left;
+  padding: 0 12px 0 0; }
+
+nav#user-social-stats {
+  border-top: 1px solid #eeeeee; }
+  nav#user-social-stats li {
+    width: 75px; }
+
+h1.stat {
+  margin: 0; }
+
+h5.stat-label {
+  font-weight: bold; }
+
+.repo {
+  clear: left; }
+
+.repo a {
+  color: blue;
+  font-weight: bold; }
+
+h4.repo-desc {
+  font-weight: normal;
+  background-color: none;
+  padding: 0 0 15px 28px;
+  width: 600px; }
+
+img.git-icon#star-icon {
+  float: right;
+  padding-left: 10px; }
+
+span.repo-stars {
+  padding: 0 0 0 28px;
+  width: 50px;
+  font-weight: bold;
+  float: right;
+  clear: none; }
