@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html >
     <head>
         <meta charset="utf-8">
         <title>github repo</title>
@@ -13,7 +13,7 @@
         <!-- endbuild -->
 
         <!-- build:css styles/main.css -->
-        <link rel="stylesheet" href="styles/main.scss">
+        <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 
         <!-- build:js scripts/vendor/modernizr.js -->
@@ -23,19 +23,14 @@
 
 
 <body>
-    <!--[if lt IE 10]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
     <script src="scripts/underscore.min.js"></script>
 
-    <script src='scripts/jsondata.js'></script>
-
-    <!-- build:js scripts/main.js -->
-
     <div class="container">
         <header>
-          <div id = "github-logo">
+          <div id = "header-icons">
+            <img id ="github-logo" src="#">
+            <img id = "placeholder-icon" src="#">
           </div>
           <input id = "search-bar"></input>
           <nav id = "header-menu">
@@ -53,31 +48,32 @@
         <section id = "user-info">
         <script type="text/template" class="user-template">
         <img id = 'user-profile-pic' src = <%- avatar_url%>>
-           <h1 id = "user-login"><%- name %></h1>
+           <h1 id = "user-name"><%- name %></h1>
 	         <h2 id = "user-login"><%- login %></h2>
 	         <nav id = "user-basic-info">
                <ul>
-                   <li><%- location %></li>
-                   <li><%- email %></li>
-                   <li><%- blog %></li>
-                   <li>Joined on <time><%- created_at %></time></li>
+                   <li><img class="git-icon" src="#" id="loc-icon"><%- location %></li>
+                   <li><img class="git-icon" src="#" id="email-icon"><%- email %></li>
+                   <li><img class="git-icon" src="#" id="blog-icon"><%- blog %></li>
+                   <li><img class="git-icon" src="#" id="time-icon">Joined on <time><%- created_at %></time></li>
                 </ul>
             </nav>
             <nav id = "user-social-stats">
                <ul>
                    <li>
-                         <p class="stat"><%- followers %></p>
-                         <p class="stat-label">Followers</p></li>
+                         <h1 class="stat"><%- followers %></p>
+                         <h5 class="stat-label">Followers</p></li>
                    <li>
-                         <p class="stat"> <%- starredCount %> </p>
-                         <p class="stat-label">Starred</p></li>
+                         <h1 class="stat"> <%- starredCount %> </p>
+                         <h5 class="stat-label">Starred</p></li>
                    <li>
-                         <p class="stat"><%- following %></p>
-                         <p class="stat-label"></p>Following</p></li>
+                         <h1 class="stat"><%- following %></p>
+                         <h5 class="stat-label"></p>Following</p></li>
                </ul>
             </nav>
             <section id = "organizations">
-                   <a href='#'><img src= <%- organizations_url %>></a> <% // Need to figure out the right API to pull from...organizations is return null %>
+                <h3>Organizations</h3>
+                <a href='#'><img src= <%- organizations_url %>></a> <% // Need to figure out the right API to pull from...organizations is return null %>
             </section>
         </script>
       </section>
