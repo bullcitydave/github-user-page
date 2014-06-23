@@ -79,26 +79,23 @@
       </section>
 
         <section id = "main">
-
-
-
-        	      <nav id = "activity-tab-headers">
-                        <ul>
-                            <li>Contributions</li>
-                            <li>Repositories</li>
-                            <li>Public Activity</li>
-                        </ul>
-                </nav>
+            <nav id = "activity-tab-headers">
+                <ul>
+                    <li><img class="git-icon" src="#" id="contrib-icon">Contributions</li>
+                    <li><img class="git-icon" src="#" id="repo-icon">Repositories</li>
+                    <li><img class="git-icon" src="#" id="public-act-icon">Public Activity</li>
+                </ul>
+            </nav>
             <section id = "contributions">
 		            <section id = "popular-repos">
                   <header class = "main-subhead">Popular Repositories</header>
                   <script type="text/template" class="repo-template">
                       <div class = "repo">
 	                       <img class="git-icon" src="#" id="repo-icon">
-	                       <p class="repo-title"> <%- name %></p>
-                         <p class="repo-desc"> <%- description %></p>
+	                       <a href="#"><p class="repo-title"> <%- name %></p></a>
+                         <h4 class="repo-desc"> <%- description %></h4>
                          <img class="git-icon" src="#" id="star-icon">
-                         <p class="repo-stars"> <%- stargazers_count %></p>
+                         <span class="repo-stars"> <%- stargazers_count %></p>
 	                     </div>
                   </script>
                   </section>
