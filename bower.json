@@ -2,7 +2,7 @@
   "name": "github-repo",
   "private": true,
   "dependencies": {
-    "jquery": "~1.11.0"
-  },
-  "devDependencies": {}
+    "jquery": "~1.11.0",
+    "octicons": "2.0.0"
+  }
 }

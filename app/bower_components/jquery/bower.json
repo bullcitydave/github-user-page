@@ -17,7 +17,8 @@
     "sizzle": "1.10.19",
     "requirejs": "2.1.10",
     "qunit": "1.14.0",
-    "sinon": "1.8.1"
+    "sinon": "1.8.1",
+    "octicons": "2.0.0"
   },
   "keywords": [
     "jquery",

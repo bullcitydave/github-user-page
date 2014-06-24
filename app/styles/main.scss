@@ -4,12 +4,12 @@
 
 $gray-light : #EEE;
 $gray-medium : #999;
-
+$gray-icon: #ccc;
 
 body {
   width: 1065px;
   margin: auto;
-  font-family: Arial, sans serif;
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
 a  {
@@ -38,6 +38,15 @@ img#github-logo {
 
 img#placeholder-icon {
   @extend img#github-logo;
+}
+
+span.octicon, span.mega-octicon {
+  float:left;
+}
+
+span.octicon {
+  color: $gray-icon;
+  padding:0 8px 0 0;
 }
 
 #search-bar {
@@ -164,4 +173,12 @@ span.repo-stars{
   font-weight:bold;
   float:right;
   clear:none;
+}
+
+
+span.octicon-primitive-dot {
+  border: 1px solid $gray-medium;
+  padding: 8px;
+  border-top: 0px;
+  border-bottom: 0px;
 }

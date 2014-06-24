@@ -12,9 +12,14 @@
         <!-- endbower -->
         <!-- endbuild -->
 
+        <!-- octicons from github -->
+        <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+
         <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
+
+
 
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -29,8 +34,10 @@
     <div class="container">
         <header>
           <div id = "header-icons">
-            <img id ="github-logo" src="#">
-            <img id = "placeholder-icon" src="#">
+            <!-- <img id ="github-logo" src="#"> -->
+            <span class="mega-octicon octicon-mark-github" style="min-width: 32px;"></span>
+            <!-- <img id = "placeholder-icon" src="#"> -->
+            <span class="octicon octicon-primitive-dot"></span>
           </div>
           <input id = "search-bar"></input>
           <nav id = "header-menu">
@@ -52,22 +59,22 @@
 	         <h2 id = "user-login"><%- login %></h2>
 	         <nav id = "user-basic-info">
                <ul>
-                   <li><img class="git-icon" src="#" id="loc-icon"><%- location %></li>
-                   <li><img class="git-icon" src="#" id="email-icon"><%- email %></li>
-                   <li><img class="git-icon" src="#" id="blog-icon"><%- blog %></li>
-                   <li><img class="git-icon" src="#" id="time-icon">Joined on <time><%- created_at %></time></li>
+                   <li><span class="octicon octicon-location"></span><%- location %></li>
+                   <li><span class="octicon octicon-mail"></span><%- email %></li>
+                   <li><span class="octicon octicon-link"></span><%- blog %></li>
+                   <li><span class="octicon octicon-clock"></span>Joined on <time><%- created_at %></time></li>
                 </ul>
             </nav>
             <nav id = "user-social-stats">
                <ul>
                    <li>
-                         <h1 class="stat"><%- followers %></p>
+                         <h1 class="stat"><%- followers %></h1>
                          <h5 class="stat-label">Followers</p></li>
                    <li>
-                         <h1 class="stat"> <%- starredCount %> </p>
+                         <h1 class="stat"><%- starredCount %> </h1>
                          <h5 class="stat-label">Starred</p></li>
                    <li>
-                         <h1 class="stat"><%- following %></p>
+                         <h1 class="stat"><%- following %></h1>
                          <h5 class="stat-label"></p>Following</p></li>
                </ul>
             </nav>
@@ -75,7 +82,7 @@
                 <h3>Organizations</h3>
                 <a href='#'><img src= <%- organizations_url %>></a> <% // Need to figure out the right API to pull from...organizations is return null %>
             </section>
-        </script>
+        //</script>
       </section>
 
         <section id = "main">
@@ -102,15 +109,14 @@
 
                 </section>
 		            <section id = "contrib-stats">
-                   <script type="text/template" class="activity-summary-template">
 	                 <header class = "main-subhead">Contributions</header>
                    <img class = "git-icon" id = "privacy-icon" src="#">
                    <figure id = "contrib-chart">
                    </figure>
                    <section id = "contrib-summary">
                        <section class = "contrib-summary-item">
-                           <p class = "summary-label">Year of contributions</p>
-                           <p class = "summary-value"><%- contributionCount %></p>
+                             <p class = "summary-label">Year of contributions</p>
+                             <p class = "summary-value"><script id="commit-count"><%- commitCount %></script></p>
                            <p class = "summary-time-span">yearago - today</p>
                         </section>
                        <section class = "contrib-summary-item">
@@ -130,10 +136,9 @@
                        <select><option value="All-time">All-time</option></select>
                        <div id="commit-count">
                           <img src="#" id="commit-icon">
-                          <p><span id ="commit-total"><%- commitCount %></span><span id="commit-txt"> commits</span></p>
+                          <p><span id ="commit-total"><script id="commit-count"><%- commitCount %><span id="commit-txt"> commits</span></p>
                        </div>
-                  </script>
-                </section>
+                  </section>
               </section>
               <section id="commits-by-repo">
                        <script type="text/template" class="repo-commit-template">
@@ -156,8 +161,15 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+<<<<<<< HEAD
+=======
+
+    <!-- underscore.s -->
+    <!-- script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script> -->
+>>>>>>> day2
     <script src="scripts/apitoken.js"></script>
     <script src="scripts/main.js"></script>
+
     <!-- endbuild -->
 
 
