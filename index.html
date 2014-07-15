@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>github contributions</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="styles/vendor.css">
+
+    <!-- octicons from github -->
+        <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="scripts/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+        <header>
+          <div id = "header-icons">
+            <!-- <img id ="github-logo" src="#"> -->
+            <span class="mega-octicon octicon-mark-github" style="min-width: 32px;"></span>
+            <!-- <img id = "placeholder-icon" src="#"> -->
+            <span class="octicon octicon-primitive-dot"></span>
+          </div>
+          <input id = "search-bar"></input>
+          <nav id = "header-menu">
+              <ul>
+                  <li>Explore</li>
+                  <li>Features</li>
+                  <li>Enterprise</li>
+                  <li>Blog</li>
+                  <li class="button">Sign up</li>
+                  <li class="button">Sign in</li>
+              </ul>
+          </nav>
+        </header>
+
+        <section id = "user-info">
+        <script type="text/template" class="user-template">
+        <img id = 'user-profile-pic' src = <%- avatar_url%>>
+           <h1 id = "user-name"><%- name %></h1>
+	         <h2 id = "user-login"><%- login %></h2>
+	         <nav id = "user-basic-info">
+               <ul>
+                   <li><span class="octicon octicon-location"></span><%- location %></li>
+                   <li><span class="octicon octicon-mail"></span><%- email %></li>
+                   <li><span class="octicon octicon-link"></span><%- blog %></li>
+                   <li><span class="octicon octicon-clock"></span>Joined on <time><%- created_at %></time></li>
+                </ul>
+            </nav>
+            <nav id = "user-social-stats">
+               <ul>
+                   <li>
+                         <h1 class="stat"><%- followers %></h1>
+                         <h5 class="stat-label">Followers</p></li>
+                   <li>
+                         <h1 class="stat"><%- starredCount %> </h1>
+                         <h5 class="stat-label">Starred</p></li>
+                   <li>
+                         <h1 class="stat"><%- following %></h1>
+                         <h5 class="stat-label"></p>Following</p></li>
+               </ul>
+            </nav>
+            <section id = "organizations">
+                <h3>Organizations</h3>
+                <a href='#'><img src= <%- organizations_url %>></a> <% // Need to figure out the right API to pull from...organizations is return null %>
+            </section>
+        //</script>
+      </section>
+
+        <section id = "main">
+            <nav id = "activity-tab-headers">
+                <ul>
+                    <li><img class="git-icon" src="#" id="contrib-icon">Contributions</li>
+                    <li><img class="git-icon" src="#" id="repo-icon">Repositories</li>
+                    <li><img class="git-icon" src="#" id="public-act-icon">Public Activity</li>
+                </ul>
+            </nav>
+            <section id = "contributions">
+		            <section id = "popular-repos">
+                  <header class = "main-subhead">Popular Repositories</header>
+                  <script type="text/template" class="repo-template">
+                      <div class = "repo">
+	                       <img class="git-icon" src="#" id="repo-icon">
+	                       <a href="#"><p class="repo-title"> <%- name %></p></a>
+                         <h4 class="repo-desc"> <%- description %></h4>
+                         <img class="git-icon" src="#" id="star-icon">
+                         <span class="repo-stars"> <%- stargazers_count %></p>
+	                     </div>
+                  </script>
+                  </section>
+
+                </section>
+		            <section id = "contrib-stats">
+	                 <header class = "main-subhead">Contributions</header>
+                   <img class = "git-icon" id = "privacy-icon" src="#">
+                   <figure id = "contrib-chart">
+                   </figure>
+                   <section id = "contrib-summary">
+                       <section class = "contrib-summary-item">
+                             <p class = "summary-label">Year of contributions</p>
+                             <p class = "summary-value"><script id="commit-count"><%- commitCount %></script></p>
+                           <p class = "summary-time-span">yearago - today</p>
+                        </section>
+                       <section class = "contrib-summary-item">
+                           <p class = "summary-label">Longest streak</p>
+                           <p class = "summary-value">-1 days</p>
+                           <p class = "summary-time-span">when - when</p>
+                       </section>
+                       <section class = "contrib-summary-item">
+                           <p class = "summary-label">Current streak</p>
+                           <p class = "summary-value">-1 days</p>
+                           <p class = "summary-time-span">when - when</p>
+                       </section>
+                   </section>
+                   <section id = "contrib-period">
+                  <!--  For now, doing all-time commits without looking at timestamps, assuming commits are push events -->
+                       <p>Contribution activity</p>
+                       <select><option value="All-time">All-time</option></select>
+                       <div id="commit-count">
+                          <img src="#" id="commit-icon">
+                          <p><span id ="commit-total"><script id="commit-count"><%- commitCount %><span id="commit-txt"> commits</span></p>
+                       </div>
+                  </section>
+              </section>
+              <section id="commits-by-repo">
+                       <script type="text/template" class="repo-commit-template">
+                       <p><span id = "push-statement">Pushed <%- repoCommitCount %> commits to <%- repoName %></span><time id = "commit-date"></time></p>
+                       </script>
+             </section>
+
+              </section>
+
+</section>
+
+      </section>
+    </div>
+
+        <script src="scripts/vendor.js"></script>
+        <script src="scripts/apitoken.js"></script>
+        <script src="scripts/main.js"></script>
+</body>
+</html>
