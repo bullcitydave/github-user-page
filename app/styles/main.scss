@@ -2,25 +2,186 @@
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
-// Custom Styles
+
+
+/* Space out content a bit */
+
+$gray-light : #EEE;
+$gray-medium : #999;
+$gray-icon: #ccc;
+
 body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  width: 1065px;
+  margin: auto;
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 600px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+a  {
+  text-decoration:none;
+  font-color:#000;
+}
+
+.container {
+  padding:20px;
+}
+
+p, h1, h2, h3, h4 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+section {
+  clear:both;
+}
+
+img#github-logo {
+  float:left;
+  width: 40px;
+  height: 40px;
+}
+
+img#placeholder-icon {
+  @extend img#github-logo;
+}
+
+span.octicon, span.mega-octicon {
+  float:left;
+}
+
+span.octicon {
+  color: $gray-icon;
+  padding:0 8px 0 0;
+}
+
+#search-bar {
+  width: 205px;
+  float:left;
+}
+
+li{
+  list-style:none;
+  float:left;
+}
+
+nav#header-menu li{
+  padding: 0 10px;
+}
+
+section#user-info{
+  float:left;
+  width:300px;
+  margin-right:15px;
+}
+
+img#user-profile-pic {
+  width:250px;
+  height:250px;
+  border-radius:20px;
+}
+
+h1 {
+  font-size:1.7em;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight:normal;
+}
+
+h3 {
+  font-size:1.1em;
+  font-weight:bold;
+  margin: 0;
+}
+
+header.main-subhead {
+  font-size:0.8em;
+  font-weight:bold;
+  width:100%;
+  background-color:$gray-light;
+}
+
+h4 {
+  font-size:0.8em;
+  width:100%;
+  padding:0 0 0 28px;
+}
+
+h5 {
+  font-size:0.7em;
+  color: $gray-medium;
+}
+
+section#main{
+  float:left;
+  clear:none;
+  width:700px;
+}
+
+#user-basic-info{
+  border-top: 1px solid $gray-light;
+}
+
+img.git-icon{
+  width:16px;
+  height:16px;
+  opacity:.8;
+  float:left;
+  padding:0 12px 0 0;
+}
+
+nav#user-social-stats{
+  border-top: 1px solid $gray-light;
+  li {
+    width: 75px;
   }
+}
+
+h1.stat{
+  margin:0;
+}
+
+h5.stat-label{
+  font-weight:bold;
+}
+
+section#organizations{
+
+}
+
+.repo {
+    clear:left;
+}
+
+.repo a{
+  color:blue;
+  font-weight:bold;
+}
+
+h4.repo-desc{
+  font-weight:normal;
+  background-color:none;
+  padding: 0 0 15px 28px;
+  width: 600px;
+}
+
+img.git-icon#star-icon{
+  float:right;
+  padding-left: 10px;
+}
+
+span.repo-stars{
+  padding: 0 0 0 28px;
+  width: 50px;
+  font-weight:bold;
+  float:right;
+  clear:none;
+}
+
+
+span.octicon-primitive-dot {
+  border: 1px solid $gray-medium;
+  padding: 8px;
+  border-top: 0px;
+  border-bottom: 0px;
 }
