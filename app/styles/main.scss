@@ -2,186 +2,263 @@
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 
+@import url(http://fonts.googleapis.com/css?family=Play);
 
 
-/* Space out content a bit */
+/* Sass variables */
 
-$gray-light : #EEE;
-$gray-medium : #999;
-$gray-icon: #ccc;
+/* Colors */
+$gray-light     :  #CCC;
+$gray-medium    :  #777;
+$gray-icon      :  #777;
+$bggradient     :  '50deg, #e4f5fc 0%, #bfe8f9 29%, #9fd8ef 59%, #2ab0ed 100%';
 
-body {
-  width: 1065px;
-  margin: auto;
-  font-family: Helvetica, arial, freesans, clean, sans-serif;
-}
+/* Fonts */
+$default-font   :  Play, Helvetica, arial, freesans, clean, sans-serif;
 
-a  {
-  text-decoration:none;
-  font-color:#000;
-}
+/* Font-sizes */
+$base           :   1.3em;
 
-.container {
-  padding:20px;
-}
+
+
+/* Common selectors */
+
+a {
+    text-decoration:none;
+    font-color:#000;
+  }
 
 p, h1, h2, h3, h4 {
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-}
-
-section {
-  clear:both;
-}
-
-img#github-logo {
-  float:left;
-  width: 40px;
-  height: 40px;
-}
-
-img#placeholder-icon {
-  @extend img#github-logo;
-}
-
-span.octicon, span.mega-octicon {
-  float:left;
-}
-
-span.octicon {
-  color: $gray-icon;
-  padding:0 8px 0 0;
-}
-
-#search-bar {
-  width: 205px;
-  float:left;
-}
-
-li{
-  list-style:none;
-  float:left;
-}
-
-nav#header-menu li{
-  padding: 0 10px;
-}
-
-section#user-info{
-  float:left;
-  width:300px;
-  margin-right:15px;
-}
-
-img#user-profile-pic {
-  width:250px;
-  height:250px;
-  border-radius:20px;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
 }
 
 h1 {
-  font-size:1.7em;
+    font-size: golden-ratio($base, 1);
 }
 
 h2 {
-  font-size: 1.3em;
-  font-weight:normal;
+    font-size: $base;
+    font-weight:normal;
 }
 
 h3 {
-  font-size:1.1em;
-  font-weight:bold;
-  margin: 0;
-}
-
-header.main-subhead {
-  font-size:0.8em;
-  font-weight:bold;
-  width:100%;
-  background-color:$gray-light;
+    font-size:1.1em;
+    font-weight:bold;
+    margin: 0;
 }
 
 h4 {
-  font-size:0.8em;
-  width:100%;
-  padding:0 0 0 28px;
+    font-size:0.8em;
+    width:100%;
+    padding:0 0 0 28px;
 }
 
 h5 {
-  font-size:0.7em;
-  color: $gray-medium;
+    font-size:0.7em;
+    color: $gray-medium;
 }
 
-section#main{
-  float:left;
-  clear:none;
-  width:700px;
+ul,li {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
 }
 
-#user-basic-info{
-  border-top: 1px solid $gray-light;
+li{
+    list-style:none;
+    float:left;
 }
 
-img.git-icon{
-  width:16px;
-  height:16px;
-  opacity:.8;
-  float:left;
-  padding:0 12px 0 0;
+span.mega-octicon {
+    float: left;
 }
 
-nav#user-social-stats{
-  border-top: 1px solid $gray-light;
-  li {
-    width: 75px;
+span.octicon {
+    float:left;
+    padding:0 8px 0 0;
+}
+
+.octicon:before {
+    color: $gray-icon;
+}
+
+
+
+/* Body */
+
+body {
+  max-width: 1065px;
+  margin: auto;
+  font-family: $default-font;
+  background-color: #e4f5fc; // Old browsers
+  @include linear-gradient(50deg, #e4f5fc 0%, #bfe8f9 33.3%, #9fd8ef 66.6%, #2ab0ed 100%);
+
+  .container {
+    @include outer-container;
+
+    header {
+       @include clearfix;
+
+      div#header-icons{
+       @include span-columns(1 of 15);
+
+       img.git-icon{
+        @include size(16px 16px);
+
+        opacity:.8;
+        float:left;
+        padding:0 12px 0 0;
+        }
+
+        img#github-logo {
+          @include size(40px 40px);
+
+          float:left;
+        }
+      }
+
+      span.octicon-primitive-dot {
+        border: 1px solid $gray-medium;
+        padding: 8px;
+        border-top: 0px;
+        border-bottom: 0px;
+      }
+
+      #search-bar {
+        @include span-columns(3 of 15);
+
+        float:left;
+      }
+
+      nav#header-menu {
+        @include span-columns(11 of 15);
+        ul{
+          float:right;
+        }
+        li{
+          padding: 0 10px;
+        }
+      }
+    }
+
+    section#user-info{
+      @include span-columns(3);
+
+      float:left;
+
+      img#user-profile-pic {
+        @include size(250px 250px);
+        border-radius:20px;
+        }
+
+      nav#user-basic-info{
+        border-top: 1px solid $gray-light;
+        @include clearfix;
+      }
+
+      section#user-social-stats{
+        border-top: 1px solid $gray-light;
+
+        div.stat-block {
+          @include span-columns(1 of 3);
+          margin:3.3%;
+        }
+        @include clearfix;
+        h1.stat{
+          margin:0;
+        }
+        h5.stat-label{
+          font-weight:bold;
+        }
+      }
+
+      section#organizations{
+        clear:both;
+      }
+    }
+
+
+    section#main{
+      @include span-columns(9);
+
+      float:left;
+      clear:none;
+
+      nav#activity-tab-headers {
+        @include span-columns(9 of 9);
+
+        ul {
+          @include span-columns(6 of 9);
+
+          li {
+            // @incude span-columns(2 of 9);
+
+            float:left;
+            padding: 0 10px;
+          }
+        }
+      }
+
+      section#contributions {
+        @include span-columns(9 of 9);
+
+        margin: 30px 0 0 0;
+
+        section#popular-repos {
+          @include span-columns(9 of 9);
+
+          .main-subhead {
+            @include span-columns(9 of 9);
+
+            font-size:$base*0.75;
+            padding: 5px 5px 5px 5px;
+            font-weight:bold;
+            background-color:$gray-light;
+          }
+
+        div.repo {
+          @include span-columns(9 of 9);
+
+          clear:left;
+          margin: 0;
+
+          .repo-titles {
+            @include span-columns(8 of 9);
+
+            float:left;
+
+            p.repo-title {
+              font-size:$base;
+            }
+            h4.repo-desc {
+              font-weight:normal;
+              background-color:none;
+              padding: 0 0 15px 28px;
+            }
+          }
+          .repo-favs {
+            @include span-columns(1 of 9);
+            float:right;
+
+            span.repo-stars{
+              font-weight:bold;
+              padding-left:30%;
+            }
+
+            span.octicon-star{
+              float:right;
+            }
+          }
+        }
+        div.repo a {
+          color:blue;
+          font-weight:bold;
+        }
+      }
+    }
   }
 }
-
-h1.stat{
-  margin:0;
-}
-
-h5.stat-label{
-  font-weight:bold;
-}
-
-section#organizations{
-
-}
-
-.repo {
-    clear:left;
-}
-
-.repo a{
-  color:blue;
-  font-weight:bold;
-}
-
-h4.repo-desc{
-  font-weight:normal;
-  background-color:none;
-  padding: 0 0 15px 28px;
-  width: 600px;
-}
-
-img.git-icon#star-icon{
-  float:right;
-  padding-left: 10px;
-}
-
-span.repo-stars{
-  padding: 0 0 0 28px;
-  width: 50px;
-  font-weight:bold;
-  float:right;
-  clear:none;
-}
-
-
-span.octicon-primitive-dot {
-  border: 1px solid $gray-medium;
-  padding: 8px;
-  border-top: 0px;
-  border-bottom: 0px;
 }

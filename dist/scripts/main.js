@@ -1,3 +1,6 @@
+/* jshint unused: false */
+var token = 'f33b4754f424b266f74ae2c7d9d820e97a179ca9';
+
 /* jshint undef: false, unused: false */
 
 "use strict";
@@ -52,3 +55,8 @@ $.getJSON(repoURL).done(function(repoData){
 //   $('#commits-by-repo').append('<p>' +repoName+'</p>');
 //   $('#commits-by-repo').append('<p>' + repoCommitCount+'</P>');
 // };
+
+
+function getStartDate (jsunixtimestamp) {
+  return date.getHours();
+}
