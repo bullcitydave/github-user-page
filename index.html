@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>github contributions</title>
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Place favicon.ico and apple-touchicon" src="http://placekitten.com/16/16".png in the root directory -->
 
     <link rel="stylesheet" href="styles/vendor.css">
 
@@ -15,18 +15,23 @@
     <link rel="stylesheet" href="styles/main.css">
 
     <script src="scripts/vendor/modernizr.js"></script>
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="scripts/main.js"></script>
+
   </head>
   <body>
 
     <div class="container">
         <header>
-          <div id = "header-icons">
+          <div id = "headericon" src="http://placekitten.com/16/16"s">
             <!-- <img id ="github-logo" src="#"> -->
             <span class="mega-octicon octicon-mark-github" style="min-width: 32px;"></span>
-            <!-- <img id = "placeholder-icon" src="#"> -->
+            <!-- <img id = "placeholdericon" src="http://placekitten.com/16/16"" src="#"> -->
             <span class="octicon octicon-primitive-dot"></span>
           </div>
-          <input id = "search-bar"></input>
+          <input id = "search-bar" placeholder="Search or type a command"></input>
           <nav id = "header-menu">
               <ul>
                   <li>Explore</li>
@@ -49,35 +54,34 @@
                    <li><span class="octicon octicon-location"></span><%- location %></li>
                    <li><span class="octicon octicon-mail"></span><%- email %></li>
                    <li><span class="octicon octicon-link"></span><%- blog %></li>
-                   <li><span class="octicon octicon-clock"></span>Joined on <time><%- created_at %></time></li>
+                   <li><span class="octicon octicon-clock"></span>Joined on <time><%- moment.parseZone(created_at) %></time></li>
+                  <!-- converted zulu time to JSUnix time, still looking for way to call function from template to convert JSUnix time to desired format -->
                 </ul>
             </nav>
-            <nav id = "user-social-stats">
-               <ul>
-                   <li>
-                         <h1 class="stat"><%- followers %></h1>
-                         <h5 class="stat-label">Followers</p></li>
-                   <li>
-                         <h1 class="stat"><%- starredCount %> </h1>
-                         <h5 class="stat-label">Starred</p></li>
-                   <li>
-                         <h1 class="stat"><%- following %></h1>
-                         <h5 class="stat-label"></p>Following</p></li>
-               </ul>
+            <section id = "user-social-stats">
+               <div class="stat-block">
+                   <h1 class="stat"><%- followers %></h1>
+                   <h5 class="stat-label">Followers</div>
+               <div class="stat-block">
+                   <h1 class="stat"><%- starredCount %> </h1>
+                   <h5 class="stat-label">Starred</div>
+               <div class="stat-block">
+                   <h1 class="stat"><%- following %></h1>
+                   <h5 class="stat-label">Following</div>
             </nav>
             <section id = "organizations">
                 <h3>Organizations</h3>
-                <a href='#'><img src= <%- organizations_url %>></a> <% // Need to figure out the right API to pull from...organizations is return null %>
+                <a href='#'><img src= "<%- organizations_url %>"></a> <% // Need to figure out the right API to pull from...organizations is return null %>
             </section>
-        //</script>
+        </script>
       </section>
 
         <section id = "main">
             <nav id = "activity-tab-headers">
                 <ul>
-                    <li><img class="git-icon" src="#" id="contrib-icon">Contributions</li>
-                    <li><img class="git-icon" src="#" id="repo-icon">Repositories</li>
-                    <li><img class="git-icon" src="#" id="public-act-icon">Public Activity</li>
+                    <li><img class="giticon" src="http://placekitten.com/16/16"" src="#" id="contribicon" src="http://placekitten.com/16/16"">Contributions</li>
+                    <li><img class="giticon" src="http://placekitten.com/16/16"" src="#" id="repoicon" src="http://placekitten.com/16/16"">Repositories</li>
+                    <li><img class="giticon" src="http://placekitten.com/16/16"" src="#" id="public-acticon" src="http://placekitten.com/16/16"">Public Activity</li>
                 </ul>
             </nav>
             <section id = "contributions">
@@ -85,25 +89,35 @@
                   <header class = "main-subhead">Popular Repositories</header>
                   <script type="text/template" class="repo-template">
                       <div class = "repo">
-	                       <img class="git-icon" src="#" id="repo-icon">
-	                       <a href="#"><p class="repo-title"> <%- name %></p></a>
+                        <div class = "repo-titles">
+	                       <a href="#"><p class="repo-title"> <img class="giticon" src="http://placekitten.com/16/16"><%- name %></p></a>
                          <h4 class="repo-desc"> <%- description %></h4>
-                         <img class="git-icon" src="#" id="star-icon">
-                         <span class="repo-stars"> <%- stargazers_count %></p>
-	                     </div>
+                        </div>
+                        <div class = "repo-favs">
+                         <span class="repo-stars"> <%- stargazers_count %> <span class="octicon octicon-star">
+                        </div>
+	                    </div>
                   </script>
                   </section>
 
                 </section>
-		            <section id = "contrib-stats">
+
+
+
+
+
+
+
+
+		            <!-- <section id = "contrib-stats">
 	                 <header class = "main-subhead">Contributions</header>
-                   <img class = "git-icon" id = "privacy-icon" src="#">
+                   <img class = "giticon" src="http://placekitten.com/16/16"" id = "privacyicon" src="http://placekitten.com/16/16"" src="#">
                    <figure id = "contrib-chart">
                    </figure>
                    <section id = "contrib-summary">
                        <section class = "contrib-summary-item">
                              <p class = "summary-label">Year of contributions</p>
-                             <p class = "summary-value"><script id="commit-count"><%- commitCount %></script></p>
+                             <p class = "summary-value"><script type="text/template" id="commit-count"><%- commitCount %></script></p>
                            <p class = "summary-time-span">yearago - today</p>
                         </section>
                        <section class = "contrib-summary-item">
@@ -119,11 +133,11 @@
                    </section>
                    <section id = "contrib-period">
                   <!--  For now, doing all-time commits without looking at timestamps, assuming commits are push events -->
-                       <p>Contribution activity</p>
+                       <!-- <p>Contribution activity</p>
                        <select><option value="All-time">All-time</option></select>
                        <div id="commit-count">
-                          <img src="#" id="commit-icon">
-                          <p><span id ="commit-total"><script id="commit-count"><%- commitCount %><span id="commit-txt"> commits</span></p>
+                          <img src="#" id="commiticon" src="http://placekitten.com/16/16"">
+                          <p><span id ="commit-total"><script type="text/template" id="commit-count"><%- commitCount %><span id="commit-txt"> commits</span></p>
                        </div>
                   </section>
               </section>
@@ -137,11 +151,8 @@
 
 </section>
 
-      </section>
+      </section> -->
     </div>
 
-        <script src="scripts/vendor.js"></script>
-        <script src="scripts/apitoken.js"></script>
-        <script src="scripts/main.js"></script>
-</body>
+    </body>
 </html>
