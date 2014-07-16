@@ -52,3 +52,8 @@ $.getJSON(repoURL).done(function(repoData){
 //   $('#commits-by-repo').append('<p>' +repoName+'</p>');
 //   $('#commits-by-repo').append('<p>' + repoCommitCount+'</P>');
 // };
+
+
+function getStartDate (jsunixtimestamp) {
+  return date.getHours();
+}
