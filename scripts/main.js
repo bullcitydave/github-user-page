@@ -6,7 +6,7 @@ var token = 'f33b4754f424b266f74ae2c7d9d820e97a179ca9';
 "use strict";
 
 // change the login as needed; ideally pass a parameter to page; mine can be default
-var login = 'juliaelman';
+var login = 'bullcityda e';
 
 // Get github API URLs
 var repoURL = 'https://api.github.com/users/' + login + '/repos?' + token;
